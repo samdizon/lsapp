@@ -10,7 +10,7 @@
     </div>
     <hr>
     <div>
-        <p><?php echo e($post->body); ?></p>
+        <p><?php echo $post->body; ?></p>
     </div>
     <small>Written on <?php echo e($post->created_at); ?></small>
 <?php $__env->stopSection(); ?>

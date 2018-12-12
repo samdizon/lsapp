@@ -11,7 +11,7 @@
     </div>
     <hr>
     <div>
-        <p>{{$post->body}}</p>
+        <p>{!!$post->body!!}</p>
     </div>
     <small>Written on {{$post->created_at}}</small>
 @endsection

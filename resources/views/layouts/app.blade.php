@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
         <title>{{config('app.name','LSAPP')}}</title>
@@ -11,8 +12,14 @@
     <body>
         @include('inc.navbar')
         <div class="container mt-3">
+            @include('inc.messages')
             @yield('content')
         </div>
+        <div id="app"></div>
         <script src="{{asset('js/app.js')}}"></script> 
+        <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+        <script>
+            try{CKEDITOR.replace( 'article-ckeditor' );}catch{}
+        </script>
     </body>
 </html>
