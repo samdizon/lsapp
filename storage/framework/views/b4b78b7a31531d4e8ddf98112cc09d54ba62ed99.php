@@ -1,11 +1,20 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
-        <div class="col-8">
+        <div class="col-10">
             <h1><?php echo e($post->title); ?></h1>  
         </div>
-        <div class="col-4 text-right">
+        <div class="col-1 text-right">
             <a class="btn btn-outline-secondary" href="/posts/<?php echo e($post->id); ?>/edit">Edit</a>
-            <a class="btn btn-outline-danger" href="/posts/<?php echo e($post->id); ?>">Delete</a>
+        </div>
+        <div class="col-1">
+            <?php echo Form::open(['action'=> ['PostsController@destroy',$post->id],'method'=>'POST']); ?>
+
+                <?php echo Form::hidden('_method','DELETE'); ?>
+
+                <?php echo Form::submit('Delete',['class'=>'btn btn-outline-danger']); ?>
+
+            <?php echo Form::close(); ?>
+
         </div>
     </div>
     <hr>
