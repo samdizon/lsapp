@@ -3,19 +3,23 @@
         <div class="col-10">
             <h1><?php echo e($post->title); ?></h1>  
         </div>
-        <div class="col-1 text-right">
-            <a class="btn btn-outline-secondary" href="/posts/<?php echo e($post->id); ?>/edit">Edit</a>
-        </div>
-        <div class="col-1">
-            <?php echo Form::open(['action'=> ['PostsController@destroy',$post->id],'method'=>'POST']); ?>
+        <?php if(!Auth::guest()): ?>
+            <?php if(Auth::user()->id == $post->user_id): ?>
+                <div class="col-1 text-right">
+                    <a class="btn btn-outline-secondary" href="/posts/<?php echo e($post->id); ?>/edit">Edit</a>
+                </div>
+                <div class="col-1">
+                    <?php echo Form::open(['action'=> ['PostsController@destroy',$post->id],'method'=>'POST']); ?>
 
-                <?php echo Form::hidden('_method','DELETE'); ?>
+                        <?php echo Form::hidden('_method','DELETE'); ?>
 
-                <?php echo Form::submit('Delete',['class'=>'btn btn-outline-danger']); ?>
+                        <?php echo Form::submit('Delete',['class'=>'btn btn-outline-danger']); ?>
 
-            <?php echo Form::close(); ?>
+                    <?php echo Form::close(); ?>
 
-        </div>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
     </div>
     <hr>
     <div>
