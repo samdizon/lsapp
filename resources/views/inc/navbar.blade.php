@@ -48,7 +48,7 @@
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
-                            <a href="/posts/create" class="dropdown-item">Create Post</a>
+                            <a href="/dashboard" class="dropdown-item">Dashboard</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
