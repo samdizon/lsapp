@@ -29,7 +29,16 @@
                                                 <tr>
                                                     <td scope="row"><?php echo e($post->title); ?></td>
                                                     <td class="text-right"><a href="/posts/<?php echo e($post->id); ?>/edit" class="btn btn-outline-info">Edit</a></td>
-                                                    <td><a href="/posts/<?php echo e($post->id); ?>" class="btn btn-outline-danger">Delete</a></td>
+                                                    <td class="text-left">
+                                                        <?php echo Form::open(['action'=>['PostsController@destroy',$post->id],'method' => 'POST']); ?>
+
+                                                            <?php echo Form::submit('Delete',['class'=>'btn btn-outline-danger']); ?>
+
+                                                            <?php echo Form::hidden('_method','DELETE'); ?>
+
+                                                        <?php echo Form::close(); ?>
+
+                                                    </td>
                                                 </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>

@@ -30,7 +30,12 @@
                                                 <tr>
                                                     <td scope="row">{{$post->title}}</td>
                                                     <td class="text-right"><a href="/posts/{{$post->id}}/edit" class="btn btn-outline-info">Edit</a></td>
-                                                    <td><a href="/posts/{{$post->id}}" class="btn btn-outline-danger">Delete</a></td>
+                                                    <td class="text-left">
+                                                        {!!Form::open(['action'=>['PostsController@destroy',$post->id],'method' => 'POST'])!!}
+                                                            {!!Form::submit('Delete',['class'=>'btn btn-outline-danger'])!!}
+                                                            {!!Form::hidden('_method','DELETE')!!}
+                                                        {!!Form::close()!!}
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
