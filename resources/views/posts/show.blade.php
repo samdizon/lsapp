@@ -18,5 +18,5 @@
     <div>
         <p>{!!$post->body!!}</p>
     </div>
-    <small>Written on {{$post->created_at}}</small>
+    <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
 @endsection

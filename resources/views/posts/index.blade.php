@@ -8,7 +8,7 @@
                     <h4 class="card-title">
                         <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                     </h4>
-                    <small class="card-text">Written on {{$post->created_at}}</small>
+                    <small class="card-text">Written on {{$post->created_at}} by {{$post->user->name}}</small>
                 </div>
             </div> 
         @endforeach

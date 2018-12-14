@@ -21,6 +21,6 @@
     <div>
         <p><?php echo $post->body; ?></p>
     </div>
-    <small>Written on <?php echo e($post->created_at); ?></small>
+    <small>Written on <?php echo e($post->created_at); ?> by <?php echo e($post->user->name); ?></small>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

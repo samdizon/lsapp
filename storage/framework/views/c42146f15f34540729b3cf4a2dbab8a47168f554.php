@@ -7,7 +7,7 @@
                     <h4 class="card-title">
                         <a href="/posts/<?php echo e($post->id); ?>"><?php echo e($post->title); ?></a>
                     </h4>
-                    <small class="card-text">Written on <?php echo e($post->created_at); ?></small>
+                    <small class="card-text">Written on <?php echo e($post->created_at); ?> by <?php echo e($post->user->name); ?></small>
                 </div>
             </div> 
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
