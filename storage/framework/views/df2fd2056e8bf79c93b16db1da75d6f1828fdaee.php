@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <h1>Edit Post</h1>
-    <?php echo Form::open(['action' => ['PostsController@update',$post->id], 'method'=>'POST','enctype'=>'multipart/data', 'files'=>true]); ?>
+    <?php echo Form::open(['action' => ['PostsController@update',$post->id], 'method'=>'POST','enctype'=>'multipart/form-data']); ?>
 
         <div class="form-group">
             <?php echo e(Form::label('title','Title')); ?>
